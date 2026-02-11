@@ -3,7 +3,9 @@
 ################################################################################
 
 module "policy" {
-  source = "../terraform-mirae-policy"
+  #source = "../terraform-mirae-policy"
+  source  = "app.terraform.io/sb-github/policy/mirae"
+  version = "1.0.0"
 
   region      = var.region
   project     = var.project
@@ -22,8 +24,9 @@ data "aws_caller_identity" "current" {}
 ################################################################################
 
 module "vpc" {
-  source = "../terraform-aws-vpc"
-
+  #source = "../terraform-aws-vpc"
+  source  = "app.terraform.io/sb-github/vpc/aws"
+  version = "1.0.0"
   # VPC
   vpc_name = local.resolved_vpc_name
   vpc_cidr = local.resolved_vpc_cidr
