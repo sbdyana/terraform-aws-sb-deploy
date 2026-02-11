@@ -54,7 +54,9 @@ module "vpc" {
 ################################################################################
 
 module "security_group" {
-  source   = "../terraform-aws-security-group"
+  #source   = "../terraform-aws-security-group"
+  source  = "app.terraform.io/sb-github/security-group/aws"
+  version = "1.0.0"
   for_each = local.security_groups
 
   name        = each.value.name
