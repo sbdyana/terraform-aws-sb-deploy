@@ -559,25 +559,25 @@ locals {
 #   }
 # }
 
-# ################################################################################
-# # VPC Module Outputs
-# ################################################################################
+################################################################################
+# VPC Module Outputs
+################################################################################
 
-# locals {
-#   resolved_vpc_name = local.vpc_name
-#   resolved_vpc_cidr = local.vpc_cidr
+locals {
+  resolved_vpc_name = local.vpc_name
+  resolved_vpc_cidr = local.vpc_cidr
 
-#   resolved_subnet_names = [for k, v in local.subnets : v.name]
-#   resolved_subnet_cidrs = [for k, v in local.subnets : v.cidr]
-#   resolved_subnet_zones = [for k, v in local.subnets : v.az]
+  resolved_subnet_names = [for k, v in local.subnets : v.name]
+  resolved_subnet_cidrs = [for k, v in local.subnets : v.cidr]
+  resolved_subnet_zones = [for k, v in local.subnets : v.az]
 
-#   resolved_route_table_names        = values(local.route_tables)
-#   resolved_route_table_associations = local.route_table_associations
+  resolved_route_table_names        = values(local.route_tables)
+  resolved_route_table_associations = local.route_table_associations
 
-#   resolved_route_names             = [for idx, r in local.routes : "${r.route_table}-${idx}"]
-#   resolved_route_route_table_names = [for r in local.routes : r.route_table]
-#   resolved_route_destination_cidrs = [for r in local.routes : r.destination]
-# }
+  resolved_route_names             = [for idx, r in local.routes : "${r.route_table}-${idx}"]
+  resolved_route_route_table_names = [for r in local.routes : r.route_table]
+  resolved_route_destination_cidrs = [for r in local.routes : r.destination]
+}
 
 
 # ################################################################################
